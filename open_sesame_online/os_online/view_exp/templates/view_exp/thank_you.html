@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Thank you</title>
+    
+    <meta charset="utf-8">
+    <link rel="icon" type= "image/x-icon" href="{% static "img/icons/favicon.ico" %}" />
+        
+    <link rel="stylesheet" href= "/static/bootstrap/css/bootstrap.min.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href= "/static/css/main.css" type="text/css" />
+        
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    
+</head>
+
+    
+  <body>
+      <div class= "container-fluid">
+            <div class= "row margin-20" >
+                <div class= "col-sm-2">
+                    <img src="/static/img/logo.png" alt="OpenSesame" width="60" height="60" >
+                </div>
+                
+                <div class= "col-sm-8">
+                    <h1>Open Sesame Online</h1>       
+                </div>
+                
+            </div>
+            
+            <div class= "row margin-20">
+                <div class= "col-sm-8 {% if request.user.is_authenticated %}logged-in{% else %}logged-out{% endif %}">
+                    Thank you for participating!
+            </div>
+            
+            <div class= "row colofon-box">
+                <div class="col-sm-2">
+                Open Sesame Online is an online viewer of the <a href= "http://osdoc.cogsci.nl/">Open Sesame</a> free and cross-platform experiment builder. 
+
+                </div>
+                <div class="col-sm-8">
+                Open Sesame Online was developed in a collaborative effort of Eva de Hullu (Klinische Psychologie, Open Universiteit Nederland) Sebastiaan Mathôt and Daniel Schreij (Department of Cognitive Psychology, Vrije Universiteit) as a Giphouse project by Sakis Brouzioutis, Laurens van den Bercken, Ben Brucker, Maarten Kerrebijn, Michail Kuznetcov, Iris Monster, Jeftha Spunda, Tom van de Poll, Willem de Wit.
+                </div>
+            </div>     
+        </div>
+  </body>
+</html>

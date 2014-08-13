@@ -1,0 +1,24 @@
+{% extends "experimenter/header.html" %}
+{% load url from future %}
+{% load i18n %}
+{% load account %}
+
+{% block head_title %}{% trans "Help" %}{% endblock %}
+{% block title %}{% trans "Help" %}{% endblock %}
+
+{% block content %}  
+<div>
+    <div class="col-sm-12">
+        <p> OpenSesame online is an open source software with which one can create complex experiments using stimuli measurements. The software can then be used to run the experiments. The OpenSesame online project aims to to develop online functionality for OpenSesame, so that is becomes possible to do experiments online using a web browser. Currently, the items that are supported by OpenSesame online are:</p>
+        <ul class="list">
+            <li>Text_display</li>
+            <li>Loop</li>
+            <li>Sequence</li>
+            <li>Logger</li>
+            <li>Keyboard_response</li>
+            <li>Sketchpad (in the sketchpad currently only the subitems text tool, image and fixation dot are supported)</li>
+            <li>Reset_feedback</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

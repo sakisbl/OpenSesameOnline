@@ -17,7 +17,7 @@ BASE_DIR = os.path.realpath(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '@6r(3z!uf@))r(pu1rb+oz8u@bg&(tr0b=xczh$4h4w*d3$(8e'
+SECRET_KEY = 'EnterSecretKeyHere'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -25,7 +25,7 @@ DEBUG = True
 TEMPLATE_DEBUG = True
 
 ADMINS = (
-    ('TestAdmin', 'opensesame_2014spring@giphouse.nl'),
+    ('TestAdmin', 'opensesame@test.nl'),
 )
 
 
@@ -135,10 +135,10 @@ STATICFILES_FINDERS = (
 )
 
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'OpenSesameOnline@gmail.com'
-EMAIL_HOST_PASSWORD = 'OpenSesameOnlinePassword^6'
-EMAIL_PORT = 578
+EMAIL_HOST = 'SMTPAddress'
+EMAIL_HOST_USER = 'EnterEmailAddressHere'
+EMAIL_HOST_PASSWORD = 'EmailPassword'
+EMAIL_PORT = 'EmailPort'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

@@ -38,6 +38,7 @@ class Draw(Statement):
         'circle' : self._compile_pattern('circle'),
         'textline' : self._compile_pattern('textline'),
         'image' : self._compile_pattern('image'),
+        'rect' : self._compile_pattern('rect'),
         'gabor' : self._compile_pattern('gabor'),
         'noise' : self._compile_pattern('noise'),
         'fixdot' : self._compile_pattern('fixdot')
@@ -56,7 +57,7 @@ class Draw(Statement):
         text = r"\s+(\w+|\".+?\"|\'.+?\'|"+variable+")"
         textstring = r"\s+(\w+|\".*?\"|\'.*?\'|"+variable+")"
         keywords = r"(?P<keywords>.+)?$"
-        if pattern_type in ("ellipse", "line", "arrow"):
+        if pattern_type in ("ellipse", "line", "arrow", "rect"):
             return re.compile(key+number+number+number+number+keywords)
         elif pattern_type == "circle":
             return re.compile(key+number+number+number+keywords)
@@ -117,6 +118,11 @@ class Draw(Statement):
 
         # pylint: disable=bad-whitespace
         if self.parameters['type'] == 'ellipse':
+            self.parameters['left']     = exp.group(3)
+            self.parameters['top']      = exp.group(4)
+            self.parameters['width']    = exp.group(5)
+            self.parameters['height']   = exp.group(6)
+        elif self.parameters['type'] == 'rect':
             self.parameters['left']     = exp.group(3)
             self.parameters['top']      = exp.group(4)
             self.parameters['width']    = exp.group(5)

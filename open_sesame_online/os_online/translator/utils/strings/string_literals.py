@@ -62,20 +62,22 @@ DRAW_NAME_DICT = defaultdict(lambda: "/*Unimplemented*/,",{
     'textline'          : 'textline',
     'gabor'             : 'gabor',
     'noise'             : 'noise',
+    'rect'              : 'rect',
     'fixdot'            : 'fixdot'})
 
 # Define what the order of parameters for draw statements is
 DRAW_PARAM_DICT = {
     'image'             : ['x','y','path', 'scale', 'center', 'show_if'],
-    'ellipse'           : ['left','top','width','height'],
-    'circle'            : ['x','y','radius'],
-    'line'              : ['left','right','top','bottom'],
-    'arrow'             : ['left','right','top','bottom'],
+    'ellipse'           : ['left','top','width','height', 'fill', 'penwidth', 'color', 'show_if'],
+    'circle'            : ['x','y','radius', 'fill', 'penwidth', 'color', 'show_if'],
+    'rect'              : ['left','top','width','height', 'fill', 'penwidth', 'color', 'show_if'],
+    'line'              : ['left','right','top','bottom', 'penwidth', 'color', 'show_if'],
+    'arrow'             : ['left','right','top','bottom', 'penwidth', 'color', 'arrow_size', 'show_if'],
     'textline'          : ['x','y','text','center','color'\
                            ,'font_family','font_size','font_italic'
                            ,'font_bold','show_if'],
-    'gabor'             : ['x','y'],
-    'noise'             : ['x','y'],
+    'gabor'             : ['x','y', 'orient', 'freq', 'env', 'size', 'stdev', 'phase', 'color1', 'color2', 'bgmode', 'show_if'],
+    'noise'             : ['x','y', 'env', 'size', 'stdev', 'color1', 'color2', 'bgmode', 'show_if'],
     'fixdot'            : ['x','y', 'color', 'show_if']}
 
 # This map specifies the parameter order for the different defines.

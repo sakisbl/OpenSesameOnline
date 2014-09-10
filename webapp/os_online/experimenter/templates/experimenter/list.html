@@ -1,0 +1,83 @@
+{% extends "experimenter/header.html" %}
+{% load url from future %}
+{% load i18n %}
+{% load account %}
+
+{% block head_title %}{% trans "Overview" %}{% endblock %}
+{% block title %}{% trans "Overview" %}{% endblock %}
+
+{% block content %}   
+
+
+
+<div>
+    
+    <table class = "table table-striped experiment-list">
+        <thead>
+        <tr>
+            <td class="col-sm-5">Experiment name</td>
+            <td>Participants</td>
+            <td>Open</td>
+            <td>Public</td>
+        </tr>
+        </thead>
+        
+        <tbody>
+    {% if exps  %}
+        {% for exp in exps %}
+
+
+            <tr>
+                <td>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">{{ exp.title }} </a>
+                
+                            <ul class="dropdown-menu" role="menu">
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url "edit_view" exp.pk %}"> <img src="/static/img/icons/edit.png" alt="ok" width="20" height="20"> Edit</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url "view_experiment" exp.permalink %}"><img src="/static/img/icons/preview.png" alt="ok" width="20" height="20"> Preview</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url "token_list_view" exp.pk %}"><img src="/static/img/icons/send-user.png" alt="ok" width="20" height="20"> Share</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" onclick="if(confirm('Are you sure you want to delete this experiment?')) document.location = '{% url "delete_view" exp.pk %}' "> <img src="/static/img/icons/delete.png" alt="ok" width="20" height="20"> Delete</a></li>
+                                <li role="presentation" class="divider"></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url "export_csv" exp.pk %}"><img src="/static/img/icons/save.png" alt="ok" width="20" height="20"> Download results</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url "show_results" exp.pk %}"><img src="/static/img/icons/notes.png" alt="ok" width="20" height="20"> View results</a></li>
+                            </ul>
+                    </div>
+
+                </td>
+                
+                {% if exp.is_public %}
+                    <td>{{ exp.nr_participants }}</td>
+                {% else %}
+                    <td>{{ exp.nr_participants }} / {{ exp.max_participants }}</td>
+                {% endif %}
+
+                {% if exp.is_open == True %}
+                    <td><img src="/static/img/icons/ok.png" alt="ok" width="20" height="20"></td>
+                {% else %}
+                    <td><img src="/static/img/icons/cancel.png" alt="ok" width="20" height="20"></td>
+                {% endif %}  
+                {% if exp.is_public == True %}
+                    <td><img src="/static/img/icons/ok.png" alt="ok" width="20" height="20"></td>
+                {% else %}
+                    <td><img src="/static/img/icons/cancel.png" alt="ok" width="20" height="20"></td>
+                {% endif %} 
+            </tr>
+            
+   
+        {% endfor %}
+    {% else %}
+        <tr>
+            <td>No documents</td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+    {% endif %}   
+            </tbody>
+    </table>
+    
+</div>
+
+
+
+{% endblock %}

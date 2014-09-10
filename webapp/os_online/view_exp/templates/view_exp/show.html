@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" type= "image/x-icon" href="{% static "img/icons/favicon.ico" %}" />
+	<title>Experiment</title>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="{% static "view_exp/fabric.js-1.4.4/dist/fabric.js" %}"></script>
+    </head>
+    <body id="body">
+        <div id ="loader">Loading the experiment files... Please wait</div>	
+        <canvas id="canvas"></canvas>
+        <script src="{% static "view_exp/utils/keyListener.js" %}"></script>
+        <script src="{% static "view_exp/utils/utilities.js" %}"></script>
+        <script src="{% static "view_exp/components/reset_feedback.js" %}"></script>
+        <script src="{% static "view_exp/components/experiment.js" %}"></script>
+        <script src="{% static "view_exp/components/sequence.js" %}"></script>
+        <script src="{% static "view_exp/components/textDisplay.js" %}"></script>
+        <script src="{% static "view_exp/components/keyResponse.js" %}"></script>
+        <script src="{% static "view_exp/components/loop.js" %}"></script>
+        <script src="{% static "view_exp/components/sketchpad.js" %}"></script>
+        <script src="{% static "view_exp/components/logger.js" %}"></script>
+        <script src="{% static "view_exp/components/fixdot.js" %}"></script>
+        <script src="{% static "view_exp/components/textline.js" %}"></script>
+        <script src="{% static "view_exp/components/image.js" %}"></script>
+        <script src="{% static "view_exp/components/line.js" %}"></script>
+        <script src="{% static "view_exp/components/circle.js" %}"></script>
+        <script src="{% static "view_exp/components/rect.js" %}"></script>
+        <script src="{% static "view_exp/components/ellipse.js" %}"></script>
+        <script src="{% static "view_exp/components/arrow.js" %}"></script>
+        <script src="{% static "view_exp/components/gabor.js" %}"></script>
+        <script src="{% static "view_exp/components/noise.js" %}"></script>
+
+        <script type="text/javascript">
+            IMAGEPOOL = utils.mediaPool.createImagePool('{{ pool }}', JSON.parse('{{ images | safe}}'))
+        </script>
+        <script src="/media/{{ scriptname  }}"></script>
+    </body>
+</html>

@@ -1,0 +1,77 @@
+{% extends "experimenter/header.html" %}
+{% load url from future %}
+{% load i18n %}
+{% load account %}
+
+{% block head_title %}{% trans "Upload" %}{% endblock %}
+{% block title %}{% trans "Upload" %}{% endblock %}
+
+{% block content %} 
+
+
+<script type="text/javascript">
+{% if error_message %}
+    alert('{{ error_message }}');
+{% endif %}
+</script> 
+<div>
+    <form class="form-horizontal" role="form" action="{% url "upload_view" %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>{{ form.non_field_errors }}</p>
+        
+        <div class="form-group">
+            <label for="id_docfile" class="col-sm-3 control-label">Select file:</label>
+            <div class="col-sm-9">
+                <input id="id_docfile" name="docfile" type="file">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="id_title" class="col-sm-3 control-label">Choose a Title:</label>
+            <div class="col-sm-9">
+                <input id="id_title" name="title" type="text" class="form-control" placeholder="Title">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="id_start_date" class="col-sm-3 control-label">Start date:</label>
+            <div class="col-sm-9">
+                <input id="start_datepicker_upload" name="start_date" type="text" class="form-control" placeholder="Start Date">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="id_end_date" class="col-sm-3 control-label">End date:</label>
+            <div class="col-sm-9">
+                <input id="end_datepicker" name="end_date" type="text" class="form-control" placeholder="End Date">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9">
+              <div class="checkbox">
+                <label for="id_is_public">
+                  <input id="id_is_public" name="is_public" type="checkbox"> Is public
+                </label>
+              </div>
+            </div>
+        </div>
+      
+        <div>
+            <div class="col-sm-offset-3 col-sm-9">
+                
+                <button type="submit" style="border: 0; background: transparent">
+                    <img src="/static/img/icons/upload.png" width="40" height="40" alt="submit" />
+                </button>
+
+            </div>
+        </div>
+        
+        
+    </form>
+
+</div>
+
+{% endblock %}
+
+

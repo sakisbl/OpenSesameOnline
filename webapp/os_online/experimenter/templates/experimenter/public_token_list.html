@@ -1,0 +1,45 @@
+{% extends "experimenter/header.html" %}
+{% load url from future %}
+{% load i18n %}
+{% load account %}
+
+{% block head_title %}{% trans "Share " %}{{exp_title}}{% endblock %}
+{% block title %}{% trans "Share " %}{{exp_title}}{% endblock %}
+
+{% block content %}          
+  
+<div>
+<!-- List of valid tokens -->
+        
+    <table class = "table table-striped">
+        <tr>
+            <td>Permalink (Only for experimenter test purposes. Does not log data)</td>
+        </tr>
+
+        <tr>
+            {% if perma_token %}
+            <td><a href="{{ BASE_URL }}/{{ perma_token.token }}">{{ BASE_URL }}/{{ perma_token.token }}</a></td>
+            {% else %}
+            <td>No Permalink</td>
+            {% endif %} 
+        </tr>
+    </table>
+    
+    <table class = "table table-striped">
+        <tr>
+            <td>Share this link with your participants</td>
+        </tr>
+        
+        <tr>
+            {% if participant_token %}
+            <td><a>{{ BASE_URL }}/{{ participant_token.token }}</a></td>
+            {% else %}
+            <td>No Permalink</td>
+            {% endif %} 
+        </tr>
+  
+    </table>
+    
+</div>
+
+{% endblock %}

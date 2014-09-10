@@ -1,0 +1,4 @@
+Django==1.7
+gunicorn
+django-allauth
+South==1.0

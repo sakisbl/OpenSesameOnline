@@ -20,16 +20,16 @@ from django.db.models import Manager, Q
 class ActiveTokenManager(Manager):
     """ Manager for active tokens (not expired).
     """
-    def get_query_set(self):
+    def get_queryset(self):
         """ Gets the set of active tokens (excludes the permalink)"""
-        queryset = super(ActiveTokenManager, self).get_query_set()
+        queryset = super(ActiveTokenManager, self).get_queryset()
         return queryset.filter(Q(used=False), Q(perma_token=False))
 
 class ExpiredTokenManager(Manager):
     """ Manager for expired tokens.
     """
-    def get_query_set(self):
+    def get_queryset(self):
         """ Gets the set of expired tokens"""
-        queryset = super(ExpiredTokenManager, self).get_query_set()
+        queryset = super(ExpiredTokenManager, self).get_queryset()
         return queryset.filter(Q(used=True))
 

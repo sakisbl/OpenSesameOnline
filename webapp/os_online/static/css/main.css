@@ -177,3 +177,9 @@ h1
 	text-decoration: underline;
 	color: #f57900;
 }
+
+.dropdown-toggle
+{
+  cursor: pointer;
+  cursor: hand;
+}

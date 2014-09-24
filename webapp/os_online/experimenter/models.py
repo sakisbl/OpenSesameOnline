@@ -64,8 +64,8 @@ class Experiment(models.Model):
     end_date        = models.DateField(null=True)
     nr_participants = models.PositiveIntegerField(blank=True, editable=False, default=0)
     max_participants= models.PositiveIntegerField(blank=True, editable=False, default=0)
-    is_open         = models.BooleanField(editable=False)
-    is_public       = models.BooleanField()
+    is_open         = models.BooleanField(editable=False, default=False)
+    is_public       = models.BooleanField(default=False)
     permalink       = models.OneToOneField(Token, related_name='is_permalink_of', null=True)
     def __unicode__(self):
         return self.title

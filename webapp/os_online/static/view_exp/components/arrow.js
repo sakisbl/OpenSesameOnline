@@ -12,7 +12,7 @@
 * @param condition - draw condition. Item will only be drawn if condition holds
 */
 function arrow(sx, sy, ex, ey, penwidth, color, size, condition) {
-    
+
     //x coord on the canvas of this object.
     var _sx = parseFloat(sx);
 
@@ -48,6 +48,12 @@ function arrow(sx, sy, ex, ey, penwidth, color, size, condition) {
 
     var _bottom = _ey + CANVAS.getHeight()/2;
 
+    var _arrowlength = _right - 10;
+
+    var _arrowtop = _bottom + 10;
+
+    var _arrowbottom = _bottom - 10;
+
     /**
     * Draw function.
     * Will be called by the sketchpad this arrow item belongs to. 
@@ -55,17 +61,19 @@ function arrow(sx, sy, ex, ey, penwidth, color, size, condition) {
     */
     this.draw = function () {
         if(eval(_condition())) {
-            // var arrow = new fabric.Path('M ' + _left + ' ' + _top + 'L ' + _right + ' ' + _bottom + 'M ' + _right + ' ' + _bottom + 'L 45 52 M' + _right + ' ' + _bottom + 'L 45 -52 z', {
-            //     stroke: 'red',
-            //     strokeWidth: 1,
-            //     fill: false
-            // });
-             var arrow = new fabric.Path('M ' + _left + ' ' + _top + 'L ' + _right + ' ' + _bottom + 'M ' + _right + ' ' + _bottom + 'L 45 52 M' + _right + ' ' + _bottom + 'L 45 -52 z', {
+            var arrow = new fabric.Path('M ' + _left + ' ' + _top + ' L ' + _right + ' ' + _bottom + ' M ' + _right + ' ' + _bottom + ' L ' + _arrowlength + ' ' + _arrowtop + ' M ' + _right + ' ' + _bottom + ' L ' + _arrowlength + ' ' + _arrowbottom +' z', {
+                stroke: 'red',
+                strokeWidth: 1,
+                fill: false
+            });
+            /*
+             var arrow = new fabric.Path('M ' + _left + ' ' + _top + ' L ' + _right + ' ' + _bottom + ' M ' + _right + ' ' + _bottom + ' L 45 52 M ' + _right + ' ' + _bottom + ' L 45 -52 z', {
                 stroke: _color,
                 strokeWidth: _penwidth,
                 fill: false
             });
-            CANVAS.add(arrow);            
+            */
+            CANVAS.add(arrow);         
         }
     }
 }

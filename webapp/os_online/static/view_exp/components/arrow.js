@@ -62,18 +62,10 @@ function arrow(sx, sy, ex, ey, penwidth, color, size, condition) {
     this.draw = function () {
         if(eval(_condition())) {
             var arrow = new fabric.Path('M ' + _left + ' ' + _top + ' L ' + _right + ' ' + _bottom + ' M ' + _right + ' ' + _bottom + ' L ' + _arrowlength + ' ' + _arrowtop + ' M ' + _right + ' ' + _bottom + ' L ' + _arrowlength + ' ' + _arrowbottom +' z', {
-                stroke: 'red',
-                strokeWidth: 1,
-                fill: false
-            });
-            /*
-             var arrow = new fabric.Path('M ' + _left + ' ' + _top + ' L ' + _right + ' ' + _bottom + ' M ' + _right + ' ' + _bottom + ' L 45 52 M ' + _right + ' ' + _bottom + ' L 45 -52 z', {
                 stroke: _color,
                 strokeWidth: _penwidth,
-                fill: false
-            });
-            */
-            CANVAS.add(arrow);         
+            });  
+            CANVAS.add(arrow);    
         }
     }
 }

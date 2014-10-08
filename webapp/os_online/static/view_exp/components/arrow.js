@@ -39,19 +39,25 @@ function arrow(sx, sy, ex, ey, penwidth, color, size, condition) {
     var _condition = function () {
         return utils.parseVar(condition);
     }
-
+    //calculate x coordinate for the tail of the arrow
     var _left = _sx + CANVAS.getWidth()/2;
 
+    //calculate y coordinate for the tail of the arrow
     var _top = _sy + CANVAS.getHeight()/2 ;
 
+    //calculate x coordinate for the head of the arrow
     var _right = _ex + CANVAS.getWidth()/2;
 
+    //calculate y coordinate for the head of the arrow
     var _bottom = _ey + CANVAS.getHeight()/2;
 
+    //calculate the position of the wings of the arrow
     var _arrowlength = _right - 10;
 
+    //calculate the position of the wings of the arrow
     var _arrowtop = _bottom + 10;
 
+    //calculate the position of the wings of the arrow
     var _arrowbottom = _bottom - 10;
 
     /**
